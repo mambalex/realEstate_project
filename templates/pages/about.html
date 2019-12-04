@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row text-center">
             <div class="col-md-12">
-              <h1 class="display-4">About BT Real Estate</h1>
+              <h1 class="display-4">About AZ Real Estate</h1>
               <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
             </div>
           </div>
@@ -20,7 +20,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <a href="{% url 'index' %}">
-                  <i class="fas fa-home"></i> Home</a>
+                  <i class="fas fa-home"></i> <span>Home</span></a>
               </li>
               <li class="breadcrumb-item active"> About</li>
             </ol>
@@ -33,7 +33,8 @@
           <div class="row">
             <div class="col-md-8">
               <h2>We Search For The Perfect Home</h2>
-              <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+              <br>
+              <!-- <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p> -->
               <img src="{% static 'img/about.jpg' %}" alt="">
               <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
                 neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
@@ -77,10 +78,9 @@
                     <h4>{{ realtor.name }}</h4>
                     <p class="text-success">
                       <i class="fas fa-award text-success mb-3"></i> Realtor</p>
-                    <hr>
-                    <p>
+                    <p class="phone">
                       <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
-                    <p>
+                    <p class="email">
                       <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
                   </div>
               {% endfor %}  
