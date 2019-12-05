@@ -34,6 +34,11 @@ img {
     font-weight: 400;
     line-height: 1.2;
   }
+  @media screen and (max-width:500px){
+    #showcase .home-search .display-4{
+      font-size: 2rem;
+    }
+  }
   #showcase .home-search .lead{
     padding: 0  30px 30px;
     font-size: 16px;
@@ -54,6 +59,12 @@ img {
     font-weight: 600;
     width: 333px;
     margin: 0 auto;
+  }
+
+  @media only screen and (max-width:5000px){
+    #showcase .btn-secondary, #showcase-inner .btn-secondary{
+      width: 100%;
+    }
   }
   
   #showcase .overlay {
@@ -102,6 +113,12 @@ img {
       font-weight: 300;
       line-height: 1.3;
     }
+    @media screen and (max-width:500px){
+      #showcase-inner h1.display-4{
+        font-size: 2rem;
+      }
+    }
+
     #showcase-inner .lead{
       color: rgba(256,256,256,.7);
       font-size: 14px;
@@ -147,12 +164,12 @@ img {
   background-color: #1de9b6 !important;
   color: #000000 !important;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 1.375rem;
 }    
 #listings>.container>h3{
   font-family: 'Overpass', sans-serif;
   color: #111111 !important;
-  font-size: 18px;
+  font-size: 1.125rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.2;
@@ -189,7 +206,7 @@ img {
  } */
 .card-body .text-secondary{
   color: #424242 !important;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
@@ -216,7 +233,7 @@ img {
   margin-top: 50px !important;
 }
 .breadcrumb .breadcrumb-item{
-  font-size: 14px;
+  font-size: 0.875rem;
   text-transform: uppercase;
   font-weight: 800;
 }
@@ -235,7 +252,7 @@ img {
   margin-bottom: 50px;
 }
 #about .col-md-8 h2{
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 800;
   line-height: 1.2;
   color: #111111;
@@ -243,6 +260,14 @@ img {
 
 #about .col-md-8 img, #about .col-md-8 .mt-4{
   width: 85% !important;
+}
+@media screen and (max-width:500px){
+  #about .col-md-8 img, #about .col-md-8 .mt-4{
+    width: 100% !important;
+  }
+  #about .col-md-8 .mt-4{
+    margin-bottom: 50px;
+  }
 }
 
 #about  .card-text{
@@ -276,7 +301,7 @@ img {
   position: relative;
   z-index: 2;
   color: rgba(256,256,256,.7);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 300;
   letter-spacing: 0.5px;
 }
@@ -287,7 +312,7 @@ img {
   color: #000000 !important;
   border-radius: 0;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   width: 300px;
   margin: 0 auto;
@@ -295,7 +320,7 @@ img {
 
 #team .container h2{
   color: #111111 !important;
-  font-size: 20px;
+  font-size: 1.25rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.2;
@@ -321,7 +346,7 @@ img {
 }
 
 #team .container .phone, #team .container .email{
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -382,6 +407,12 @@ img {
   margin: 0 auto;
 }
 
+@media only screen and (max-width:5000px){
+  .modal-body .btn{
+    width: 100%;
+  }
+}
+
 .modal-body .btn:hover{
   color: #1de9b6 !important;
 }
@@ -424,6 +455,10 @@ img {
 }
 #dashboard{
   min-height: calc(100vh - 332px);
+  box-sizing: border-box;
+}
+#listings{
+  min-height: calc(100vh - 400px);
   box-sizing: border-box;
 }
 
