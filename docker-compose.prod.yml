@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  web:
+    image: web-prod
+    command: gunicorn realEstate.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - db
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./realestatedb_init.sql:/tmp/realestatedb_init.sql
+      - ./init_docker_postgres.sh:/docker-entrypoint-initdb.d/init_docker_postgres.sh
+    env_file:
+      - ./.env.prod.db
+  nginx:
+    image: nginx-prod
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+    ports:
+      - 80:80
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

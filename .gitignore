@@ -3,6 +3,8 @@
 *.pyc
 *.pgsql
 *.sql
+.env.prod
+.env.prod.db
 /.vscode
 __pycache__/
 local_settings.py
@@ -11,3 +13,5 @@ db.sqlite3-journal
 /media
 venv
 /static
+.terraform
+*.tfstate*
