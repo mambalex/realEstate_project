@@ -32,7 +32,15 @@ Uses **gunicorn** + **nginx** + **docker swarm**.
 
 1. Update the environment variables & Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db
 
-2. Build the images
+   > Note: update the DJANGO_ALLOWED_HOSTS in .env.prod or it won't work
+
+2. Clone the repo
+
+   ```bash
+   git clone https://github.com/mambalex/realEstate_project.git
+   ```
+
+3. Build the images
 
    > Note: You can't build an image specified in a Docker Compose file on Docker Swarm
 
@@ -41,7 +49,7 @@ Uses **gunicorn** + **nginx** + **docker swarm**.
    docker build -t nginx-prod  -f ./nginx/Dockerfile ./nginx
    ```
 
-3. Deploy a new prod stack
+4. Deploy a new prod stack
    ```bash
    docker swarm init
    docker stack deploy --compose-file docker-compose.prod.yml prod-stack
