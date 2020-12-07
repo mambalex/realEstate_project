@@ -15,4 +15,5 @@ db.sqlite3-journal
 venv
 /static
 .terraform
+variables.tf
 *.tfstate*
