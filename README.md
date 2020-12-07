@@ -1,6 +1,6 @@
 # realEstate_project
 
-Live Demo: https://alexstaging.co/
+Live Demo: https://realestate.alexzhang.co
 
 ## Development
 
@@ -8,7 +8,7 @@ Uses the default Django development server.
 
 `docker-compose up -d --build`
 
-Test it out at http://localhost:8000.
+Test it out at http://localhost:8000
 
 ## Production
 
@@ -16,6 +16,8 @@ Test it out at http://localhost:8000.
 
 - Uses **Terraform** + **AWS**.
 - Leverage spot instance to minimize the costs
+
+> Note: Modify variables-sample and rename variables-sample to variables.tf
 
 ```bash
 cd infra
@@ -39,7 +41,9 @@ Tools:
 1. Clone the repo
 
    ```bash
+   ssh ec2@xxx.xx.xx -i key_name.pem
    git clone https://github.com/mambalex/realEstate_project.git
+   cd realEstate_project
    ```
 
 2. Update the environment variables & Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db
@@ -57,11 +61,16 @@ Tools:
    docker build -t nginx-prod  -f ./nginx/Dockerfile ./nginx
    ```
 
-5. Set up SSH
+5. Set up SSL
+
+   - Automatic Certificate Renewal
+
    > Note: Don't forget to add domains and email addresses to init-letsencrypt.sh
+
    ```bash
    ./init-letsencrypt.sh
    ```
+
 6. Deploy a new prod stack
    ```bash
    docker swarm init
