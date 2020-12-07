@@ -15,9 +15,10 @@ Test it out at http://localhost:8000.
 ### Infrastructure
 
 - Uses **Terraform** + **AWS**.
-- Auto start/stop the instance to minimize the costs
+- Leverage spot instance to minimize the costs
 
 ```bash
+cd infra
 export AWS_ACCESS_KEY_ID="accesskey"
 export AWS_SECRET_ACCESS_KEY="secretkey"
 export AWS_DEFAULT_REGION="ap-southeast-2"
@@ -28,19 +29,26 @@ terraform apply
 
 ### Deployment
 
-Uses **gunicorn** + **nginx** + **docker swarm**.
+Tools:
 
-1. Update the environment variables & Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db
+- **Gunicorn**
+- **Nginx**
+- **Let’s Encrypt**
+- **Docker Swarm**
 
-   > Note: update the DJANGO_ALLOWED_HOSTS in .env.prod or it won't work
-
-2. Clone the repo
+1. Clone the repo
 
    ```bash
    git clone https://github.com/mambalex/realEstate_project.git
    ```
 
-3. Build the images
+2. Update the environment variables & Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db
+
+   > Note: update the DJANGO_ALLOWED_HOSTS in .env.prod or it won't work
+
+3. Seeding database `realestatedb_init.sql`
+
+4. Build the images
 
    > Note: You can't build an image specified in a Docker Compose file on Docker Swarm
 
@@ -49,7 +57,12 @@ Uses **gunicorn** + **nginx** + **docker swarm**.
    docker build -t nginx-prod  -f ./nginx/Dockerfile ./nginx
    ```
 
-4. Deploy a new prod stack
+5. Set up SSH
+   > Note: Don't forget to add domains and email addresses to init-letsencrypt.sh
+   ```bash
+   ./init-letsencrypt.sh
+   ```
+6. Deploy a new prod stack
    ```bash
    docker swarm init
    docker stack deploy --compose-file docker-compose.prod.yml prod-stack

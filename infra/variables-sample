@@ -1,0 +1,33 @@
+variable "ec2" {
+  type = map
+  default = {
+    "ami"                             = "ami-09f765d333a8ebb4b"
+    "instance_type"                   = "t1.micro"
+    "spot_price"                      = "0.02"
+    "instance_interruption_behaviour" = "stop"
+    "key_name"                        = null,
+    "name"                            = "RealEstate app - Django",
+    "ebs_delete_on_termination"       = false
+    "subnet_id"                       = "subnet-xxx" #Launch in default vpc so the elastic IP remains associated with your instance when you stop it.
+  }
+}
+
+variable "eip" {
+  type    = string
+  default = "13.211.xx.xx"
+}
+
+variable "default_vpc_id" {
+  type    = string
+  default = "vpc-38xxx"
+}
+
+variable "ingress_rules" {
+  type    = list(number)
+  default = [80, 443, 22]
+}
+
+variable "egress_rules" {
+  type    = list(number)
+  default = [80, 443, 22]
+}
